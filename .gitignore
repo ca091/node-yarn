@@ -1,0 +1,5 @@
+.idea
+node_modules
+*.png
+test.html
+test.js
