@@ -21,12 +21,7 @@ const selector_login_button = '.login_button';
     const page = await browser.newPage();
     //模拟iPhone
     await page.emulate(iPhone);
-    // await page.setViewport({
-    //     width: 375,
-    //     height: 1000,
-    //     isMobile: true,
-    //     hasTouch: true
-    // });
+    
     
     await page.goto('http://sbc.tonglvhuanqiu.com/?#/product');
 
@@ -102,8 +97,7 @@ const selector_login_button = '.login_button';
     //         });
     //     }, 1000);
     // });
-
-    // await page.screenshot({path: 'profit.png'});
+    
     // await page.evaluate(resultSelector => {
     //     let time = 2000;
     //     let navs = document.querySelectorAll('nav>div');
