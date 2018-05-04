@@ -58,8 +58,8 @@ function api(item, index, context) {
     })
 }
 
-//async 返回promise
-//await 必须写在async函数里, await {promise}
+//async返回promise
+//await必须写在async函数里, await {promise}
 async function forOf(arr, callback) {
     for (let [index, item] of Object.entries(arr)) {
         console.log(index, item);

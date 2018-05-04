@@ -3,3 +3,9 @@ node_modules
 *.png
 test.html
 test.js
+
+yarn.lock
+yarn-error.log
+package-lock.json
+
+listSong.html
