@@ -11,6 +11,7 @@
     "cheerio": "^1.0.0-rc.2",
     "puppeteer": "^1.0.0",
     "request": "^2.83.0",
-    "superagent": "^3.8.3"
+    "superagent": "^3.8.3",
+    "web-push": "^3.3.0"
   }
 }
