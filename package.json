@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "sh ./scripts/test.sh"
+    "test": "jest"
   },
   "dependencies": {
     "anyproxy": "^4.0.4",
@@ -13,6 +13,10 @@
     "puppeteer": "^1.0.0",
     "request": "^2.83.0",
     "superagent": "^3.8.3",
+    "tapable": "^1.0.0",
     "web-push": "^3.3.0"
+  },
+  "devDependencies": {
+    "jest": "^22.4.3"
   }
 }

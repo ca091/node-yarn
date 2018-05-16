@@ -28,7 +28,7 @@ app.get('/api_set', (req, res) => {
 	res.send({code: 200})
 });
 
-//use body-parser
+//work with body-parser
 app.post('/api_set', (req, res) => {
     var {params, query, body} = req;
     console.log({params, query, body});

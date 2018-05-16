@@ -11,6 +11,7 @@ webpush.setVapidDetails(
     vapidKeys.privateKey
 );
 
+//generate by browser, cache it in server
 const pushSubscription = {
     endpoint: 'https://fcm.googleapis.com/fcm/send/diHtVet1zz8:APA91bF4NxUJfWrx8kvSVL4WAEHbIHCgOy6-KuTH9oOcx2o68NbJQqcY00XPuVGOTNFcplwUjwijWhEX4FhQCthzPVdut6xDYXy3EleZuGjrsLwO-7Gvts6dcybCC5jsJ3jstxWWDTHo',
     keys: {
