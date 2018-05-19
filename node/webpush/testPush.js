@@ -1,8 +1,24 @@
 let webpush = require('web-push');
+let path = require('path');
+let fs = require('fs');
 const vapidKeys = {
-    publicKey: 'BEb2P46QjCQigSz8cpjj8I4s97tQrw-dxlh7MwUhdDQXEg-e11V7fzbye3xEysTcoDp2f6d-B-Q9QoEZdCOESPk',
-    privateKey: 'w9i0F_e9EGAioxu1FEe75rRyR0EgN5TMVUe4RRVmzO8'
+    publicKey: 'BKmzm3addDa0_hQNkJ0Readn9V2-mIhtdNvfq_yOzYpY14hGhSGJ5ZD4flqSCBDEwlwxjiaLHparbg2n0h0gxOU',
+    privateKey: 'ukWOx_ffTHeUXvN8ABM8qIxEgN4BHOB4pI7zU6e1yRM'
 };
+const endpointOfChrome =
+    'https://fcm.googleapis.com/fcm/send/diHtVet1zz8:APA91bF4NxUJfWrx8kvSVL4WAEHbIHCgOy6-KuTH9oOcx2o68NbJQqcY00XPuVGOTNFcplwUjwijWhEX4FhQCthzPVdut6xDYXy3EleZuGjrsLwO-7Gvts6dcybCC5jsJ3jstxWWDTHo';
+const endpointOfFirefox =
+    'https://updates.push.services.mozilla.com/wpush/v2/gAAAAABa_7RDyNAcXmc3bEl7usZisz-BFCQ0TxUfISA3AhKmjjnCRFkQHjR7j-RehgIzHWiq-_TPVPnochSfDCKpSE7YQI5xQpTS2-rrgjEC9K2q--w0u0sFasf2JJHrKFLzwi1fg4NNSw88nKZ1e0h50_dpc5AF3ZjLCKEAbGhL1oE6FFMne5Y';
+const auth = 'QdQw3LnOitj1Yvn3-mNj_g';
+const p256dh = 'BIB1xcmWZcMdbZISQKCVHtxWSZy0hgDdhaxHSYsKNBrjASEH62IGQ8zsheiQ4ztcJpLXwL_RwzaT-hSSmUUcV18';
+const pushMeg = {
+    title: 'push title!',
+	body: 'a test push msg.',
+	tag: 'demo-notification'
+};
+
+var pushSubscriptionStr = fs.readFileSync(path.resolve(__dirname, './pushSubscription.json'), 'utf-8');
+var pushSubscriptionObj = JSON.parse(pushSubscriptionStr);
 
 // webpush.setGCMAPIKey('<Your GCM API Key Here>');
 webpush.setVapidDetails(
@@ -13,21 +29,12 @@ webpush.setVapidDetails(
 
 //generate by browser, cache it in server
 const pushSubscription = {
-    endpoint: 'https://fcm.googleapis.com/fcm/send/diHtVet1zz8:APA91bF4NxUJfWrx8kvSVL4WAEHbIHCgOy6-KuTH9oOcx2o68NbJQqcY00XPuVGOTNFcplwUjwijWhEX4FhQCthzPVdut6xDYXy3EleZuGjrsLwO-7Gvts6dcybCC5jsJ3jstxWWDTHo',
+    endpoint: pushSubscriptionObj.endpoint,
     keys: {
-        auth: 'aGdWS4znEEcDcBDi1CoRXw',
-        p256dh: 'BCokvlY27nAH9a9AXEHyywvYB4RDdnvy6BXq1kO5ELsjbNHzbFzUgLB_jEys2Hd20eQCBlJfBNDUlaFwOYRrVfg',
+        auth: pushSubscriptionObj.auth,
+        p256dh: pushSubscriptionObj.p256dh,
     }
 };
-
-webpush.sendNotification(pushSubscription, 'Your Push Payload Text')
-    .then(data => console.log(data))
-    .catch(error => {
-        if(error.statusCode === 401){
-            // reset pushSubscription
-            console.log(error)
-        }
-    });
 
 function sendPush(pushSubscription, text) {
     webpush.sendNotification(pushSubscription, text)
@@ -35,9 +42,12 @@ function sendPush(pushSubscription, text) {
         .catch(error => {
             if(error.statusCode === 401){
                 // reset pushSubscription
-                console.log(error)
+                console.info('get push error');
+                console.error(error)
             }
         });
 }
+
+sendPush(pushSubscription, JSON.stringify(pushMeg));
 
 module.exports = sendPush;

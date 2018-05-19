@@ -17,6 +17,8 @@
     "web-push": "^3.3.0"
   },
   "devDependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
     "jest": "^22.4.3"
   }
 }

@@ -1,6 +1,12 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const ToFileStream = require('../../mynode/stream/toFileStream.js');
+const toFileStream = new ToFileStream();
+
 var app = express();
-var sendPush = require('./testPush.js');
+
+app.use(cors());
 
 var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
@@ -9,30 +15,38 @@ var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Credentials','true');
     next();
 };
-app.use(allowCrossDomain);
+// app.use(allowCrossDomain);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+	extended: true
+}));
 
 app.get('/api_set', (req, res) => {
-	var {params, query} = req;
+	let {params, query} = req;
 	console.log({params, query});
-    var pushSubscription = {
-        endpoint: query.endpoint,
-        keys: {
-            auth: query.auth,
-            p256dh: query.p256dh
-        }
-    };
-    setTimeout(() => {
-        console.log('begin send');
-        sendPush(pushSubscription, 'a push message')
-    }, 10000);
+	toFileStream.write({path: './node/webpush/pushSubscription.json', content: JSON.stringify({
+			endpoint: query.endpoint,
+			auth: query.auth,
+			p256dh: query.p256dh
+        })
+	});
+	toFileStream.end(() => console.log('All files created'));
 	res.send({code: 200})
 });
 
 //work with body-parser
 app.post('/api_set', (req, res) => {
-    var {params, query, body} = req;
+    let {params, query, body} = req;
     console.log({params, query, body});
-    res.send({code: 200})
+	toFileStream.write({path: './node/webpush/pushSubscription.json', content: JSON.stringify({
+			endpoint: body.endpoint,
+			auth: body.auth,
+			p256dh: body.p256dh
+		})
+	});
+	toFileStream.end(() => console.log('All files created'));
+    // res.send({code: 200})
+	res.sendStatus(200)
 });
 
 app.use(function(req, res, next) {
