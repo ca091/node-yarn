@@ -16,7 +16,8 @@
     "superagent": "^3.8.3",
     "tapable": "^1.0.0",
     "web-push": "^3.3.0",
-    "websocket": "^1.0.26"
+    "websocket": "*",
+    "webrtc-adapter": "^1.1"
   },
   "devDependencies": {
     "body-parser": "^1.18.3",

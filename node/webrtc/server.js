@@ -26,8 +26,9 @@
 
 "use strict";
 
-//var http = require('http');
-var https = require('https');
+// handle localhost
+var https = require('http');
+// var https = require('https');
 var url = require('url');
 var fs = require('fs');
 var path = require('path');
