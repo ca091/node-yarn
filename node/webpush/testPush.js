@@ -17,8 +17,9 @@ const pushMeg = {
 	tag: 'demo-notification'
 };
 
-var pushSubscriptionStr = fs.readFileSync(path.resolve(__dirname, './pushSubscription.json'), 'utf-8');
-var pushSubscriptionObj = JSON.parse(pushSubscriptionStr);
+let pushSubscriptionStr = fs.readFileSync(path.resolve(__dirname, './pushSubscription.txt'), 'utf-8');
+let endpointArr = pushSubscriptionStr.split('\n');
+endpointArr.pop();
 
 // webpush.setGCMAPIKey('<Your GCM API Key Here>');
 webpush.setVapidDetails(
@@ -26,15 +27,6 @@ webpush.setVapidDetails(
     vapidKeys.publicKey,
     vapidKeys.privateKey
 );
-
-//generate by browser, cache it in server
-const pushSubscription = {
-    endpoint: pushSubscriptionObj.endpoint,
-    keys: {
-        auth: pushSubscriptionObj.auth,
-        p256dh: pushSubscriptionObj.p256dh,
-    }
-};
 
 function sendPush(pushSubscription, text) {
     webpush.sendNotification(pushSubscription, text)
@@ -48,6 +40,18 @@ function sendPush(pushSubscription, text) {
         });
 }
 
-sendPush(pushSubscription, JSON.stringify(pushMeg));
+for(let endpoint of endpointArr){
+    let pushSubscriptionObj = JSON.parse(endpoint);
+    let pushSubscription = {
+        endpoint: pushSubscriptionObj.endpoint,
+        keys: {
+            auth: pushSubscriptionObj.auth,
+            p256dh: pushSubscriptionObj.p256dh,
+        }
+    };
+    sendPush(pushSubscription, JSON.stringify(pushMeg));
+}
+
+
 
 module.exports = sendPush;
