@@ -127,7 +127,7 @@ async function init() {
         let reqUrl = response.url();
         if(resourceType.match(/document/)){
             //处理歌单列表
-            if(reqUrl.indexOf('discover/playlist') != -1){
+            if(reqUrl.indexOf('discover/playlist') !== -1){
                 response.text().then(str => {
                     const $ = cheerio.load(str);
                     let curList = getCurPlayList($);
@@ -136,7 +136,7 @@ async function init() {
                     // log_res(response, str)
                 });
             //处理歌曲列表, 循环歌单得到
-            }else if(reqUrl.indexOf('playlist?id=') != -1){
+            }else if(reqUrl.indexOf('playlist?id=') !== -1){
                 response.text().then(str => {
                     const $ = cheerio.load(str);
                     let songList = getCurSongList($);
@@ -152,7 +152,7 @@ async function init() {
 
 async function initSong(browser, page, curList) {
     for (let [index, item] of Object.entries(curList)) {
-        if(downloadCount == mostCount){
+        if(downloadCount === mostCount){
             page.close().then(() => browser.close());
             return 'initSong over and downloadSong over'; //不再继续遍历歌单
         }
@@ -166,7 +166,7 @@ async function initSong(browser, page, curList) {
 
 async function downloadSong(songList) {
     for (let [index, item] of Object.entries(songList)) {
-        if(downloadCount == mostCount) return 'downloadSong over'; //停止下载
+        if(downloadCount === mostCount) return 'downloadSong over'; //停止下载
         await requestDownload(item).then(d => {console.log(d); ++downloadCount;}).catch(e => console.error('downloadSong', e));
     }
     return 'downloadSong over';
