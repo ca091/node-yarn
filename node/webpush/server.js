@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 //work with body-parser
-app.post('/api_set', (req, res) => {
+app.post('/net_set', (req, res) => {
     let {params, query, body} = req;
     console.log({params, query, body});
     let jsonStr = JSON.stringify({

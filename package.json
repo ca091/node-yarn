@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "anyproxy": "^4.0.4",
+    "bitutilsofnode": "^1.0.0",
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.3",
     "graphql": "^0.13.2",
@@ -16,8 +17,8 @@
     "superagent": "^3.8.3",
     "tapable": "^1.0.0",
     "web-push": "^3.3.0",
-    "websocket": "*",
-    "webrtc-adapter": "^1.1"
+    "webrtc-adapter": "^1.1",
+    "websocket": "*"
   },
   "devDependencies": {
     "body-parser": "^1.18.3",

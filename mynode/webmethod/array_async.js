@@ -1,5 +1,5 @@
 function testMap() {
-    var re = Promise.all([1, 2, 3].map(async item => item ** 2));
+    var re = Promise.all([1, 2, 3].map(async item => item * 2));
     re.then(d => console.log(d));
 }
 

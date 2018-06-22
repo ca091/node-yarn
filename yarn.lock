@@ -509,6 +509,10 @@ binary-search-tree@0.2.5:
   dependencies:
     underscore "~1.4.4"
 
+bitutilsofnode@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/bitutilsofnode/-/bitutilsofnode-1.0.0.tgz#7f51f519964601c0fd36602294df6eba42235f2d"
+
 bl@~1.1.2:
   version "1.1.2"
   resolved "http://registry.npm.taobao.org/bl/download/bl-1.1.2.tgz#fdca871a99713aa00d19e3bbba41c44787a65398"
