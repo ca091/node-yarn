@@ -18,3 +18,8 @@ function find({line = 1, column}) {
 
 // find({column: 362633});
 find({line: 9, column: 66767});
+
+// Api.get('https://sbc-test.oss-cn-zhangjiakou.aliyuncs.com/test/FY20188824010681.pdf')
+// .then(data => {
+//     console.log(data)
+// })

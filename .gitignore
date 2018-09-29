@@ -2,6 +2,7 @@
 node_modules
 *.png
 test.html
+practice/crawl/*.mp3
 
 yarn.lock
 yarn-error.log

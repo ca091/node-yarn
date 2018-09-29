@@ -22,7 +22,7 @@ const el_play_list = '#m-pl-container li';
 // 歌曲列表
 const el_song_list = '#song-list-pre-cache .f-hide li';
 //下载数达到时停止下载
-const mostCount = 1;
+const mostCount = 6;
 var downloadCount = 0;
 
 //爬取歌单列表,由于爬取内容位于iframe,不能使用此方法
