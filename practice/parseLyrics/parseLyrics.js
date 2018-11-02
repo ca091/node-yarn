@@ -1,14 +1,14 @@
 // => 解析歌词文件-生成dom
 
-// 误差时间(歌曲播放时与歌词显示存在误差, 修改errorTime以达到最佳显示效果)
-// 歌词慢取负
-const errorTime = 0;
 // 临时变量
 let isStart = true;
+// 误差时间(歌曲播放时与歌词显示存在误差, 修改errorTime以达到最佳显示效果) - 歌词慢取负
+const {lyricFileName, errorTime} = require('./parseConfig.js');
 const path = require('path');
 const fs = require('fs');
 const iconv = require('iconv-lite');
-fs.readFile(path.resolve(__dirname, './萧风 - 贝多芬的悲伤.lrc'), (err, data) => {
+
+fs.readFile(path.resolve(__dirname, `./${lyricFileName}.lrc`), (err, data) => {
     let originData = iconv.decode(data, 'gbk');
     let arrayP = originData.split('\n');
     let re = ['<section class="lyric">'];
@@ -48,9 +48,13 @@ function correctTimeError(timeString, timeError) {
     let arrTime = timeString.split(':');
     let intTime = parseInt(arrTime[0]) * 60 + parseFloat(arrTime[1]);
     let resultTime = intTime + timeError;
-    let minute = Math.floor(resultTime / 60);
-    let second = (resultTime % 60).toFixed(2);
-    return `${setDouble(minute)}:${setDouble(second)}`;
+    if(resultTime > 0){
+        let minute = Math.floor(resultTime / 60);
+        let second = (resultTime % 60).toFixed(2);
+        return `${setDouble(minute)}:${setDouble(second)}`;
+    }else{
+        return timeString
+    }
 }
 
 function setDouble(num) {

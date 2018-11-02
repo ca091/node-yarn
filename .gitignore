@@ -4,6 +4,8 @@ node_modules
 test.html
 practice/crawl/*.mp3
 practice/parseLyrics/lyrics.html
+practice/parseLyrics/parseConfig.js
+
 
 yarn.lock
 yarn-error.log
