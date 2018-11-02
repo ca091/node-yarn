@@ -3,6 +3,7 @@ node_modules
 *.png
 test.html
 practice/crawl/*.mp3
+practice/parseLyrics/lyrics.html
 
 yarn.lock
 yarn-error.log
