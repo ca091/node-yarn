@@ -1,7 +1,10 @@
 // => 解析歌词文件-生成dom
 
 // 误差时间(歌曲播放时与歌词显示存在误差, 修改errorTime以达到最佳显示效果)
-const errorTime = 1;
+// 歌词慢取负
+const errorTime = 0;
+// 临时变量
+let isStart = true;
 const path = require('path');
 const fs = require('fs');
 const iconv = require('iconv-lite');
@@ -13,6 +16,10 @@ fs.readFile(path.resolve(__dirname, './萧风 - 贝多芬的悲伤.lrc'), (err, 
         let pr = p.replace(/\t+/, '').replace(/\r/, '');
         let match = p.match(/\d{2}:\d{2}.\d{2}/);
         if(match){
+            if(isStart){
+                re.push(`  <div><p data-start="00:00.00"></p></div>`);
+                isStart = false;
+            }
             let text = pr.slice(10);
             if(text){
                 re.push(`  <div><p data-start="${correctTimeError(match[0], errorTime)}">${text}</p></div>`)
@@ -24,6 +31,7 @@ fs.readFile(path.resolve(__dirname, './萧风 - 贝多芬的悲伤.lrc'), (err, 
         }
     }
     re.push('</section>');
+    isStart = true;
     // console.log(re)
     fs.writeFile(path.resolve(__dirname, './lyrics.html'), re.join('\n'), err => {
         if(err) console.warn(err);
