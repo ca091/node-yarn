@@ -1,5 +1,9 @@
 const sourceMap = require('source-map')
 const {Api} = require('bitutilsofnode');
+const utils = require('util')
+const fs = require('fs')
+const path = require('path')
+const readFile = utils.promisify(fs.readFile)
 
 /**
  * js错误上报是压缩过的js，不方便定位错误，此方法是为了快速定位错误
@@ -28,7 +32,9 @@ function find({line = 1, column}) {
  */
 async function locateError({line = 1, column}) {
   // todo .map不存放到线上，应从本地获取
-  const mapObj = require('./map.js')
+  // const mapObj = require('./map.js')
+  const mapString = await readFile(path.resolve(__dirname, './index.da37bbbeb494d3e6bc17.js.map'))
+  const mapObj = JSON.parse(mapString)
   let consumer = await new sourceMap.SourceMapConsumer(mapObj)
   let result = consumer.originalPositionFor({line, column})
   // result like this
