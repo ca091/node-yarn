@@ -1,5 +1,5 @@
 const sourceMap = require('source-map')
-const {Api} = require('bitutilsofnode');
+const {Api} = require('bitutilsofnode')
 const utils = require('util')
 const fs = require('fs')
 const path = require('path')
