@@ -35,4 +35,6 @@ node myProxy.js
 - [https://developer.github.com/](https://developer.github.com/)
 
 ### sourceMap 与 js错误监控
-- [利用source-map定位错误源代码](https://github.com/mozilla/source-map)
+- [Source Map 详解](https://www.ruanyifeng.com/blog/2013/01/javascript_source_map.html)
+- [Source Map 原理探究](https://blog.csdn.net/Fundebug/article/details/83022558)
+- [source-map 定位错误源代码](https://github.com/mozilla/source-map)

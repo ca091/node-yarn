@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "debug": "node practice/findError/index.js "
+    "debug": "node practice/findError/index.js ",
+    "t": "node practice/t.js"
   },
   "dependencies": {
     "anyproxy": "^4.0.4",
