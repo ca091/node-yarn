@@ -5,6 +5,7 @@ test.html
 practice/crawl/*.mp3
 practice/parseLyrics/lyrics.html
 practice/parseLyrics/parseConfig.js
+practice/t.js
 
 
 yarn.lock
@@ -14,5 +15,3 @@ package-lock.json
 listSong.html
 feiyu.crt
 feiyu.key
-
-t.js
