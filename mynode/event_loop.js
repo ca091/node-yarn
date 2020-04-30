@@ -1,25 +1,16 @@
 // 立即resolve的Promise对象，是在本轮“事件循环”（event loop）的结束时，而不是在下一轮“事件循环”的开始时
 
-setTimeout(()=>{
-    console.log('1')
-}, 0)
-
-Promise.resolve().then(()=>{
-    console.log('Promise.resolve')
-})
-
-function add() {
-    setTimeout(()=>{
-        console.log('add over')
-    },0)
+setTimeout(() => console.log(1))
+try {
+  setImmediate(() => {
+    console.log(2)
+    throw Error()
+  })
+} catch (e) {
+  console.log(3)
 }
-
-console.log('begin')
-add()
-console.log('end')
-
-setImmediate(()=>console.log('immediate'))
-process.nextTick(()=>console.log('nextTick'))
+Promise.resolve().then(() => console.log(4))
+process.nextTick(() => console.log(5))
 
 /*
  begin
