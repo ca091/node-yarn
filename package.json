@@ -15,7 +15,7 @@
     "express": "^4.16.3",
     "graphql": "^0.13.2",
     "iconv-lite": "^0.4.24",
-    "puppeteer": "^1.0.0",
+    "puppeteer": "^4.0.1",
     "request": "^2.83.0",
     "source-map": "^0.7.3",
     "superagent": "^3.8.3",
@@ -27,6 +27,6 @@
   "devDependencies": {
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
-    "jest": "^22.4.3"
+    "jest": "^26.1.0"
   }
 }

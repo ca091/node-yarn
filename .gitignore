@@ -1,16 +1,13 @@
 .idea
 node_modules
 *.png
-test.html
+
 practice/crawl/*.mp3
 practice/parseLyrics/lyrics.html
 practice/parseLyrics/parseConfig.js
 practice/t.js
 
-
-yarn.lock
 yarn-error.log
-package-lock.json
 
 listSong.html
 feiyu.crt
