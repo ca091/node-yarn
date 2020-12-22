@@ -6,7 +6,9 @@
   "scripts": {
     "test": "jest",
     "debug": "node practice/findError/index.js ",
-    "t": "node practice/t.js"
+    "t": "node module_esm_cjs/index.test.js",
+    "tes": "node module_esm_cjs/index.mjs",
+    "tcs": "node module_esm_cjs/index.cjs"
   },
   "dependencies": {
     "anyproxy": "^4.0.4",

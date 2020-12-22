@@ -12,3 +12,6 @@ yarn-error.log
 listSong.html
 feiyu.crt
 feiyu.key
+
+**/test/*.*
+**/*.test.js
