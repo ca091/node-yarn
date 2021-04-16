@@ -5,7 +5,6 @@ node_modules
 practice/crawl/*.mp3
 practice/parseLyrics/lyrics.html
 practice/parseLyrics/parseConfig.js
-practice/t.js
 
 yarn-error.log
 

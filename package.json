@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "debug": "node practice/findError/index.js "
+    "debug": "node practice/findError/index.js",
+    "sign": "node mynode/mm/sign.test.js",
+    "t": "node practice/parse.test.js "
   },
   "dependencies": {
     "anyproxy": "^4.0.4",
@@ -14,6 +16,8 @@
     "express": "^4.16.3",
     "graphql": "^0.13.2",
     "iconv-lite": "^0.4.24",
+    "jsrsasign": "^10.2.0",
+    "jsrsasign-util": "^1.0.4",
     "puppeteer": "^4.0.1",
     "request": "^2.83.0",
     "source-map": "^0.7.3",
