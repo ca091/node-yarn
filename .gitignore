@@ -14,3 +14,5 @@ feiyu.key
 
 **/test/*.*
 **/*.test.js
+
+*.js.map

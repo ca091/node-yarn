@@ -33,7 +33,7 @@ function find({line = 1, column}) {
 async function locateError({line = 1, column}) {
   // todo .map不存放到线上，应从本地获取
   // const mapObj = require('./map.js')
-  const mapString = await readFile(path.resolve(__dirname, './index.da37bbbeb494d3e6bc17.js.map'))
+  const mapString = await readFile(path.resolve(__dirname, './vhall-jssdk-player-2.3.9.js.map'))
   const mapObj = JSON.parse(mapString)
   let consumer = await new sourceMap.SourceMapConsumer(mapObj)
   let result = consumer.originalPositionFor({line, column})
@@ -51,7 +51,7 @@ async function locateError({line = 1, column}) {
   return result
 }
 
-locateError({line: 1, column: 3311}).then(result => {
+locateError({line: 31, column: 84908}).then(result => {
   console.log(result)
 })
 

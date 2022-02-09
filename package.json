@@ -5,12 +5,13 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "debug": "node practice/findError/index.js",
-    "sign": "node mynode/mm/sign.test.js",
-    "t": "node practice/parse.test.js "
+    "debug": "node practice/findJsError/index.js",
+    "t": "node practice/parse.test.js",
+    "api": "node practice/findYapiApi/index.js"
   },
   "dependencies": {
     "anyproxy": "^4.0.4",
+    "bent": "^7.3.12",
     "bitutilsofnode": "1.1.3",
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.3",
