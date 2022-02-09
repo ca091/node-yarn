@@ -16,3 +16,5 @@ feiyu.key
 **/*.test.js
 
 *.js.map
+
+practice/findYapiApi/api*.js

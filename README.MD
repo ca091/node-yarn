@@ -10,10 +10,6 @@ yarn add puppeteer --PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
 ### anyproxy
 - [anyproxy api](http://anyproxy.io/cn/)
 
-```
-npm i -g anyproxy
-yarn add anyproxy
-```
 - anyproxy 代理https
 ```
 node cert.js
@@ -38,3 +34,9 @@ node myProxy.js
 - [Source Map 详解](https://www.ruanyifeng.com/blog/2013/01/javascript_source_map.html)
 - [Source Map 原理探究](https://blog.csdn.net/Fundebug/article/details/83022558)
 - [source-map 定位错误源代码](https://github.com/mozilla/source-map)
+
+### find Yapi Api
+```shell
+> $ grep -nri [搜索api] practice/findYapiApi
+# eg: grep -nri get-config-list practice/findYapiApi
+```
