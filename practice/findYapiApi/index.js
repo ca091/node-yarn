@@ -6,7 +6,8 @@ const host = 'http://yapi.vhall.domain'
 const listMenuUser = '/api/interface/list_menu?project_id=740'
 const listMenuLive = '/api/interface/list_menu?project_id=749'
 const headers = {
-  Cookie: '_yapi_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjY4MywiaWF0IjoxNjQ0MjE1MzE3LCJleHAiOjE2NDQ4MjAxMTd9.YU7axoXNMquGmzCU3_m3HIFdXgXStitUmqxto5baygo; _yapi_uid=683'
+  Cookie: '_yapi_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjY4MywiaWF0IjoxNjQ1NDk3MjgxLCJleHAiOjE2NDYxMDIwODF9.75giiR62PjiUEsOJfzP4TO090BhKEP8pZpNyAk3xXrc; _yapi_uid=683'
+
 }
 
 async function getYapiApiUser() {
@@ -33,7 +34,7 @@ function parseData(dataArray, writeFilePath) {
     name: i.name,
     list: i.list.map(a => ({
       // id: a._id,
-      title: a.title,
+      title: a.title + '::' + a._id,
       path: a.path + '::' + a._id,
       method: a.method,
       status: a.status,
