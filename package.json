@@ -16,7 +16,7 @@
     "express": "^4.16.3",
     "graphql": "^0.13.2",
     "iconv-lite": "^0.4.24",
-    "jsrsasign": "^10.2.0",
+    "jsrsasign": "^10.5.25",
     "jsrsasign-util": "^1.0.4",
     "puppeteer": "^4.0.1",
     "request": "^2.83.0",
