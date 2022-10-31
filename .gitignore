@@ -3,8 +3,8 @@ node_modules
 *.png
 
 practice/crawl/*.mp3
-practice/parseLyrics/lyrics.html
-practice/parseLyrics/*.lrc
+practice/parse-lyrics/lyrics.html
+practice/parse-lyrics/*.lrc
 
 yarn-error.log
 

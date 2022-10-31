@@ -6,7 +6,6 @@
   "scripts": {
     "test": "jest",
     "debug": "node practice/findJsError/index.js",
-    "t": "node practice/parse.test.js",
     "api": "node practice/findYapiApi/index.js"
   },
   "dependencies": {
