@@ -11,9 +11,9 @@ export function throttlePromise(fn) {
     }
 
     let promise = fn(...args)
-    .finally(() => {
-      fetchPromiseMap.delete(args[0])
-    })
+      .finally(() => {
+        fetchPromiseMap.delete(args[0])
+      })
 
     fetchPromiseMap.set(args[0], promise)
 
