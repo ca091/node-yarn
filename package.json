@@ -25,7 +25,8 @@
     "tapable": "^1.0.0",
     "web-push": "^3.3.0",
     "webrtc-adapter": "^1.1",
-    "websocket": "*"
+    "websocket": "*",
+    "multer": "^1.2.0"
   },
   "devDependencies": {
     "body-parser": "^1.18.3",

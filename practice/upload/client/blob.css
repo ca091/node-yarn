@@ -1,0 +1,41 @@
+section{
+    margin-bottom: .4rem;
+}
+
+form{
+    border: 1px solid gray;
+    padding: 10px 5px;
+}
+label{
+    cursor: pointer;
+}
+label:hover{
+    color: orange;
+}
+input[type='file']{
+    display: none;
+}
+
+.box-drop{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 1px solid gray;
+}
+#abort{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+button{
+    padding: .5em 1em;
+    border: none;
+    color: #fff;
+}
+.btn-danger{
+    background-color: orange;
+}
